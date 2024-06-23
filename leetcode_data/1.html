@@ -1,0 +1,104 @@
+<html><head><title>Question and Solutions</title><style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+            overflow-x: auto;
+            counter-reset: line;
+            line-height: 1.5;
+            margin: 0;
+        }
+        code {
+            color: #d63384;
+            font-size: 14px;
+        }
+        .example, .solution {
+            margin-top: 20px;
+        }
+        .example h3, .solution h3 {
+            margin-top: 0;
+            color: #007bff;
+            cursor: pointer;
+        }
+        .solution.active {
+            display: block;
+        }
+        .line {
+            counter-increment: line;
+        }
+        .line:before {
+            content: counter(line);
+            display: inline-block;
+            width: 50px;
+            text-align: right;
+            margin-right: 10px;
+            color: #777;
+            user-select: none;
+        }
+        .home-link {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .home-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .home-link a:hover {
+            text-decoration: underline;
+        }
+        </style></head><body><div class="container"><div class="home-link"><a href="http://localhost:3000/leetcode">Home</a></div><body><div id="title">1. Two Sum</div><div class="content__u3I1 question-content__JfgR"><div><p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.</p>
+<p>You may assume that each input would have <strong><em>exactly</em> one solution</strong>, and you may not use the <em>same</em> element twice.</p>
+<p>You can return the answer in any order.</p>
+<p> </p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [2,7,11,15], target = 9
+<strong>Output:</strong> [0,1]
+<strong>Output:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].
+</pre>
+<p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [3,2,4], target = 6
+<strong>Output:</strong> [1,2]
+</pre>
+<p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> nums = [3,3], target = 6
+<strong>Output:</strong> [0,1]
+</pre>
+<p> </p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
+<li><strong>Only one valid answer exists.</strong></li>
+</ul>
+<p> </p>
+<strong>Follow-up: </strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>) </code>time complexity?</div></div></body><div class="example"><h3 onclick="toggleSolution('c++')">Solution in C++</h3><pre class="solution" id="c++">c++</pre></div><div class="example"><h3 onclick="toggleSolution('python')">Solution in Python</h3><pre class="solution" id="python">c++</pre></div><div class="example"><h3 onclick="toggleSolution('java')">Solution in Java</h3><pre class="solution" id="java">c++</pre></div></div><script>
+            <script>
+                function toggleSolution(id) {
+                    var solution = document.getElementById(id);
+                    solution.classList.toggle("active");
+                }
+            </script>
+            </script></body></html>
