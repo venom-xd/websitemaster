@@ -17,10 +17,19 @@ app.get('/', (req, res) => {
 app.get('/internships', (req, res) => {
     res.sendFile(path.join(__dirname, 'internships.html'));
 });
+app.get('/leetcode/1.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'leetcode_data/1.html'));
+});
+app.get('/leetcode/2.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'leetcode_data/2.html'));
+});
 // Route to serve the LeetCode solutions page
 app.get('/leetcode', (req, res) => {
     res.sendFile(path.join(__dirname, 'leetcode.html'));
 });
+// app.get('/leetcode/1', (req, res) => {
+//         res.sendFile(path.join(__dirname, '1.html'));
+// });
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

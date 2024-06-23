@@ -1,0 +1,102 @@
+<html><head><title>Question and Solutions</title><style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+            overflow-x: auto;
+            counter-reset: line;
+            line-height: 1.5;
+            margin: 0;
+        }
+        code {
+            color: #d63384;
+            font-size: 14px;
+        }
+        .example, .solution {
+            margin-top: 20px;
+        }
+        .example h3, .solution h3 {
+            margin-top: 0;
+            color: #007bff;
+            cursor: pointer;
+        }
+        .solution.active {
+            display: block;
+        }
+        .line {
+            counter-increment: line;
+        }
+        .line:before {
+            content: counter(line);
+            display: inline-block;
+            width: 50px;
+            text-align: right;
+            margin-right: 10px;
+            color: #777;
+            user-select: none;
+        }
+        .home-link {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .home-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .home-link a:hover {
+            text-decoration: underline;
+        }
+        </style></head><body><div class="container"><div class="home-link"><a href="http://localhost:3000/leetcode">Home</a></div><body><div id="title">2. Add Two Numbers</div><div class="content__u3I1 question-content__JfgR"><div><p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong>, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p> </p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/addtwonumber1.jpg" style="width: 483px; height: 342px;"/>
+<pre><strong>Input:</strong> l1 = [2,4,3], l2 = [5,6,4]
+<strong>Output:</strong> [7,0,8]
+<strong>Explanation:</strong> 342 + 465 = 807.
+</pre>
+<p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> l1 = [0], l2 = [0]
+<strong>Output:</strong> [0]
+</pre>
+<p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+<strong>Output:</strong> [8,9,9,9,0,0,0,1]
+</pre>
+<p> </p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in each linked list is in the range <code>[1, 100]</code>.</li>
+<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+<li>It is guaranteed that the list represents a number that does not have leading zeros.</li>
+</ul>
+</div></div></body><div class="example"><h3 onclick="toggleSolution('c++')">Solution in C++</h3><pre class="solution" id="c++"></pre></div><div class="example"><h3 onclick="toggleSolution('java')">Solution in Java</h3><pre class="solution" id="java"></pre></div></div><script>
+            <script>
+                function toggleSolution(id) {
+                    var solution = document.getElementById(id);
+                    solution.classList.toggle("active");
+                }
+            </script>
+            </script></body></html>
