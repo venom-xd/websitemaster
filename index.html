@@ -4,9 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        a {
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .container p {
+            margin: 20px 0;
+        }
+        .time {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .weather {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the HOMe Portal</h1>
-    <p><a href="/internships">View Internships</a></p>
+    <div class="container">
+        <h1>Welcome to the Home Portal</h1>
+        <div class="time" id="current-time">
+            <!-- Current time will be displayed here -->
+        </div>
+        <div class="weather">
+            <p><strong>Weather:</strong> <span id="weather-info">Loading...</span></p>
+        </div>
+        <p><a href="/internships">View Internships</a></p>
+        <p><a href="/leetcode">View All Leetcode Questions and Solutions</a></p>
+    </div>
+
+    <script>
+        // Function to update the current time
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('current-time').textContent = `Current Time: ${timeString}`;
+        }
+
+        // Function to fetch weather information (placeholder)
+        function updateWeather() {
+            // This is a placeholder for actual weather fetching logic
+            const weatherInfo = '25°C, Clear Sky';
+            document.getElementById('weather-info').textContent = weatherInfo;
+        }
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+        // Update weather information
+        updateWeather();
+    </script>
 </body>
 </html>
