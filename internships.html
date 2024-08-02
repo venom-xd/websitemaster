@@ -14,22 +14,23 @@
             color: #333;
         }
 
-        /* Updated Welcome banner styles with a different color */
+        /* Updated Welcome banner styles with a gradient and animation */
         .welcome-banner {
-            background-color: #4CAF50; /* Change this to the desired color */
+            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
             color: #fff;
             text-align: center;
             padding: 2em 1em;
             margin-bottom: 2em;
+            animation: slideIn 1s ease-out;
         }
 
         .welcome-heading {
-            font-size: 1.5em;
+            font-size: 2.5em;
             margin-bottom: 0.5em;
         }
 
         .welcome-subheading {
-            font-size: 1em;
+            font-size: 1.2em;
         }
 
         /* Navigation styles */
@@ -37,20 +38,32 @@
             background-color: #333;
             padding: 0.5em;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 1em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #74ebd5;
         }
 
         /* Updated Internship item styles with two items in a line */
         .internship-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1em;
-            margin-bottom: 2em;
+            margin: 2em auto;
+            max-width: 1200px;
+            padding: 0 1em;
         }
 
         .internship-item {
@@ -58,15 +71,12 @@
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .internship-item:last-child {
-            margin-bottom: 0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .internship-item:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
         }
 
         /* Apply button styles */
@@ -83,21 +93,34 @@
         .apply-button:hover {
             background-color: #297fb8;
         }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!-- Updated Welcome Banner with horizontal line -->
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+
+    <!-- Updated Welcome Banner with animation -->
     <div class="welcome-banner">
         <h1 class="welcome-heading">Welcome to Our Website</h1>
         <p class="welcome-subheading">Explore Opportunities, Embrace Excellence</p>
     </div>
     <hr> <!-- Horizontal line -->
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#home">Home</a>
-    </nav>
 
     <!-- Main Content -->
     <main>
@@ -127,10 +150,6 @@
             <div class="internship-item">
                 <p>Standard Chartered Recruitment Drive 2024 | For Social Media Specialist Apply here: <a href="https://scb.taleo.net/careersection/ex/jobdetail.ftl?job=2300020909&src=JB-10881" class="apply-button" target="_blank">Apply Now</a></p>
             </div>
-
-            <!-- Include your older website code here -->
-            <!-- You can paste it between the internship items -->
-
         </div>
     </main>
 </body>

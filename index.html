@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f5;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
             color: #333;
             margin: 0;
             padding: 0;
@@ -17,13 +17,35 @@
             justify-content: center;
             height: 100vh;
         }
+        .top-right-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .top-right-buttons a {
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left: 10px;
+        }
+        .top-right-buttons a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
         h1 {
-            color: #4CAF50;
+            color: #fff;
             font-size: 3em;
             margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px #000;
         }
         p {
             font-size: 1.2em;
+            color: #a86692;
         }
         a {
             color: #fff;
@@ -32,15 +54,17 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         a:hover {
             background-color: #0056b3;
+            transform: translateY(-2px);
         }
         .container {
             text-align: center;
             padding: 20px;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
@@ -57,6 +81,10 @@
     </style>
 </head>
 <body>
+    <div class="top-right-buttons">
+        <a href="/about" onclick="gtag('event', 'click', { 'event_category' : 'Navigation', 'event_label' : 'View About' });">About</a>
+        <a href="/contact" onclick="gtag('event', 'click', { 'event_category' : 'Navigation', 'event_label' : 'View Contact' });">Contact Us</a>
+    </div>
     <div class="container">
         <h1>Welcome to the Home Portal</h1>
         <div class="time" id="current-time">
@@ -67,7 +95,6 @@
         </div>
         <p><a href="/internships" onclick="gtag('event', 'click', { 'event_category' : 'Navigation', 'event_label' : 'View Internships' });">View Internships</a></p>
         <p><a href="/leetcode" onclick="gtag('event', 'click', { 'event_category' : 'Navigation', 'event_label' : 'View Leetcode' });">View All Leetcode Questions and Solutions</a></p>
-        
     </div>
 
     <script>
@@ -77,8 +104,8 @@
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
-            document.getElementById('current-time').textContent = `Current Time: ${timeString}`;
+            const timeString = ${hours}:${minutes}:${seconds};
+            document.getElementById('current-time').textContent = Current Time: ${timeString};
         }
 
         // Function to fetch weather information (placeholder)
@@ -94,13 +121,13 @@
         updateWeather();
     </script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WC8G10BE33"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC8G10BE33"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-WC8G10BE33');
-</script>
+      gtag('config', 'G-WC8G10BE33');
+    </script>
 </body>
 </html>
