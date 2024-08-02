@@ -45,7 +45,7 @@
         }
         p {
             font-size: 1.2em;
-            color: #fff;
+            color: #a86692;
         }
         a {
             color: #fff;
@@ -104,15 +104,17 @@
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = ${hours}:${minutes}:${seconds};
-            document.getElementById('current-time').textContent = Current Time: ${timeString};
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('current-time').textContent = `Current Time: ${timeString}`;
         }
 
-        // Function to fetch weather information (placeholder)
+        // Function to fetch weather information
         function updateWeather() {
-            // This is a placeholder for actual weather fetching logic
-            const weatherInfo = '25°C, Clear Sky';
-            document.getElementById('weather-info').textContent = weatherInfo;
+            // Simulate an API call to fetch weather data
+            setTimeout(() => {
+                const weatherInfo = '25°C, Clear Sky';
+                document.getElementById('weather-info').textContent = weatherInfo;
+            }, 1000);
         }
 
         // Update time every second
