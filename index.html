@@ -45,7 +45,7 @@
         }
         p {
             font-size: 1.2em;
-            color: #a86692;
+            color: #fff;
         }
         a {
             color: #fff;
@@ -91,7 +91,7 @@
             <!-- Current time will be displayed here -->
         </div>
         <div class="weather">
-            <p><strong>Weather:</strong> <span id="weather-info">problem</span></p>
+            <p><strong>Weather:</strong> <span id="weather-info">Loading...</span></p>
         </div>
         <p><a href="/internships" onclick="gtag('event', 'click', { 'event_category' : 'Navigation', 'event_label' : 'View Internships' });">View Internships</a></p>
         <p><a href="/leetcode" onclick="gtag('event', 'click', { 'event_category' : 'Navigation', 'event_label' : 'View Leetcode' });">View All Leetcode Questions and Solutions</a></p>
@@ -104,17 +104,15 @@
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
-            document.getElementById('current-time').textContent = `Current Time: ${timeString}`;
+            const timeString = ${hours}:${minutes}:${seconds};
+            document.getElementById('current-time').textContent = Current Time: ${timeString};
         }
 
-        // Function to fetch weather information
+        // Function to fetch weather information (placeholder)
         function updateWeather() {
-            // Simulate an API call to fetch weather data
-            setTimeout(() => {
-                const weatherInfo = '25°C, Clear Sky';
-                document.getElementById('weather-info').textContent = weatherInfo;
-            }, 1000);
+            // This is a placeholder for actual weather fetching logic
+            const weatherInfo = '25°C, Clear Sky';
+            document.getElementById('weather-info').textContent = weatherInfo;
         }
 
         // Update time every second
