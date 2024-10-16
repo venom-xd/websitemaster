@@ -26,26 +26,35 @@
         }
         .job-container {
             margin-top: 20px;
-            width: 300px;
+            width: 80%;  /* Make the container wider */
+            max-width: 600px;  /* Set a maximum width */
+            display: flex;
+            flex-direction: column;  /* Stack jobs vertically */
+            gap: 20px;  /* Space between job boxes */
         }
         .job {
-            border: 1px solid #ccc;
-            padding: 10px;
+            border: 2px solid #84fab0;  /* Rectangle border */
+            padding: 20px;
             margin-bottom: 10px;
-            border-radius: 5px;
+            border-radius: 10px;
             background-color: #fff;
             transition: box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .job:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         .job h3 {
             margin: 0;
+            color: #333;
+        }
+        .job p {
+            color: #555;  /* Text color for description */
         }
         .apply-button {
             background-color: #84fab0;
             color: white;
-            padding: 10px;
+            padding: 10px 15px;  /* Padding for the button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -59,7 +68,7 @@
         }
         .back-link {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 20px;
             color: #333;
             text-decoration: none;
             transition: color 0.3s;
