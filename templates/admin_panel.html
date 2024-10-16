@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            margin: 20px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            animation: fadeIn 0.5s;
+        }
+        .form-container input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+        .form-container input:focus {
+            border-color: #fbc2eb;
+            outline: none;
+        }
+        button {
+            background-color: #fbc2eb;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #a6c1ee;
+        }
+        .job-container {
+            margin-top: 20px;
+            width: 300px;
+        }
+        .job {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: box-shadow 0.3s;
+        }
+        .job:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .job h3 {
+            margin: 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #fbc2eb;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <div class="form-container">
+        <h2>Add Internship</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Internship Name" required>
+            <input type="text" name="info" placeholder="Internship Info" required>
+            <input type="url" name="link" placeholder="Internship Link" required>
+            <button type="submit" name="add">Add Internship</button>
+        </form>
+    </div>
+    <h2>Internship List</h2>
+    <div class="job-container">
+        {% for internship in internships %}
+            <div class="job">
+                <h3>{{ internship[0] }}</h3>
+                <p>{{ internship[1] }}</p>
+                <a href="{{ internship[2] }}" target="_blank">{{ internship[2] }}</a>
+                <br>
+                <a href="{{ url_for('delete_internship', index=loop.index0) }}">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/" class="back-link">Back to Home</a>
+</body>
+</html>
