@@ -4,83 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Internships</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
-            background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
-            height: 100vh;
+            background: linear-gradient(120deg, #f6f8fa, #e2eafc);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #333;
-            margin: 20px 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-        .job-container {
-            margin-top: 20px;
-            width: 80%;  /* Make the container wider */
-            max-width: 600px;  /* Set a maximum width */
-            display: flex;
-            flex-direction: column;  /* Stack jobs vertically */
-            gap: 20px;  /* Space between job boxes */
-        }
-        .job {
-            border: 2px solid #84fab0;  /* Rectangle border */
             padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
             margin-bottom: 10px;
-            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 20px 0 30px;
+            color: #555;
+        }
+
+        .job-container {
+            width: 90%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .job {
+            border: 1px solid #d1d9e6;
+            padding: 20px;
+            border-radius: 8px;
             background-color: #fff;
-            transition: box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
+
         .job:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
+
         .job h3 {
             margin: 0;
-            color: #333;
+            color: #007bff;
+            font-size: 18px;
+            font-weight: 600;
         }
+
         .job p {
-            color: #555;  /* Text color for description */
+            color: #555;
+            margin: 10px 0 20px;
+            font-size: 14px;
+            line-height: 1.6;
         }
+
         .apply-button {
-            background-color: #84fab0;
+            background-color: #007bff;
             color: white;
-            padding: 10px 15px;  /* Padding for the button */
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
             text-decoration: none;
             text-align: center;
             display: inline-block;
+            transition: background-color 0.3s ease;
         }
+
         .apply-button:hover {
-            background-color: #8fd3f4;
+            background-color: #0056b3;
         }
+
         .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #333;
+            margin-top: 40px;
+            color: #555;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
+
         .back-link:hover {
-            color: #fbc2eb;
+            color: #007bff;
         }
     </style>
 </head>
 <body>
     <h1>Available Internships</h1>
-    <h2>Internship List</h2>
+    <h2>Find Your Next Opportunity</h2>
+
     <div class="job-container">
         {% for internship in internships %}
             <div class="job">
@@ -90,6 +115,7 @@
             </div>
         {% endfor %}
     </div>
+
     <a href="/" class="back-link">Back to Home</a>
 </body>
 </html>

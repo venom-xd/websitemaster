@@ -74,6 +74,8 @@ def add_internship(name, info, link):
     internships.append([name, info, link])
     save_internships(internships)
 
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 

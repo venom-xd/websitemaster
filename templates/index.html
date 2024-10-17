@@ -3,24 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Internship Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC8G10BE33"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WC8G10BE33');
+    </script>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
         }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #007BFF;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
         .button {
-            padding: 10px 15px;
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px 0;
             text-decoration: none;
             color: white;
-            background-color: blue;
-            border-radius: 5px;
+            background-color: #007BFF;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-secondary {
+            background-color: #28a745;
+        }
+
+        .button-secondary:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Internship Portal</h1>
-    <a class="button" href="/jobs">View Internships</a>
-    <a class="button" href="/login">Login as Admin</a>
+    <div class="container">
+        <h1>Welcome to the Internship Portal</h1>
+        <p>Your gateway to exciting career opportunities!</p>
+        <a class="button" href="/jobs">View Internships</a>
+        <!-- <a class="button button-secondary" href="/login">Admin Login</a> -->
+    </div>
 </body>
 </html>
