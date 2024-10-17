@@ -1,8 +1,21 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import os
+from functools import wraps
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Change this to a random secret key for session management
+
+# Set a secret key for session management
+app.secret_key = os.urandom(24)  # Generate a random secret key for security
+
+# Decorator to check if user is logged in
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' not in session:
+            flash("You must be logged in to access this page.", "danger")
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 # Home route
 @app.route('/')
@@ -27,6 +40,7 @@ def login():
 
 # Admin panel route
 @app.route('/admin', methods=['GET', 'POST'])
+@login_required  # Protect the admin panel route
 def admin_panel():
     # Load internships from the text file
     internships = load_internships()
@@ -50,12 +64,21 @@ def jobs():
 
 # Delete internship
 @app.route('/delete/<int:index>')
+@login_required  # Protect delete route
 def delete_internship(index):
     internships = load_internships()
     if 0 <= index < len(internships):
         del internships[index]
         save_internships(internships)
     return redirect(url_for('admin_panel'))
+
+# Logout route
+@app.route('/logout')
+@login_required  # Protect logout route
+def logout():
+    session.pop('username', None)  # Remove user from session
+    flash("You have been logged out.", "success")
+    return redirect(url_for('login'))
 
 # Functions to manage internships
 def load_internships():
@@ -74,8 +97,5 @@ def add_internship(name, info, link):
     internships.append([name, info, link])
     save_internships(internships)
 
-
-
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-
