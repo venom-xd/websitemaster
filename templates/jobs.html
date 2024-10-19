@@ -47,6 +47,9 @@
         }
 
         .job {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border: 1px solid #d1d9e6;
             padding: 20px;
             border-radius: 8px;
@@ -73,6 +76,10 @@
             line-height: 1.6;
         }
 
+        .job-info {
+            flex: 1;
+        }
+
         .apply-button {
             background-color: #007bff;
             color: white;
@@ -84,6 +91,7 @@
             text-align: center;
             display: inline-block;
             transition: background-color 0.3s ease;
+            margin-left: 20px;
         }
 
         .apply-button:hover {
@@ -100,22 +108,55 @@
         .back-link:hover {
             color: #007bff;
         }
+
+        /* Last updated section */
+        .last-updated {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1>Available Internships</h1>
+    <h1>Available Internships / Jobs</h1>
     <h2>Find Your Next Opportunity</h2>
 
     <div class="job-container">
         {% for internship in internships %}
             <div class="job">
-                <h3>{{ internship[0] }}</h3>
-                <p>{{ internship[1] }}</p>
-                <a href="{{ internship[2] }}" target="_blank" class="apply-button">Apply Now</a>
+                <div class="job-info">
+                    <h3>{{ internship[0] }}</h3>
+                    <p>{{ internship[1] }}</p>
+                </div>
+                <a href="{{ internship[2] }}" target="_blank" class="apply-button" 
+                   onclick="trackApplyClick('{{ internship[0] }}', 'Apply Button');">Apply Now</a>
             </div>
         {% endfor %}
     </div>
 
     <a href="/" class="back-link">Back to Home</a>
+
+    <!-- Last updated section -->
+    <div class="last-updated" id="last-updated"></div>
+
+    <script>
+        // Get the current date and format it
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString(undefined, options);
+
+        // Set the last updated text
+        document.getElementById('last-updated').textContent = `Last Updated: ${formattedDate}`;
+
+        // Google Analytics event tracking function
+        function trackApplyClick(eventLabel, eventCategory) {
+            gtag('event', 'click', {
+                event_category: eventCategory,
+                event_label: eventLabel,
+                value: 1
+            });
+        }
+    </script>
 </body>
 </html>
